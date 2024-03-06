@@ -15,10 +15,14 @@ function App() {
   };
 
   return (
-    <div>
-      <div>{total}</div>
-      <input value={enteredValue} type="text" placeholder="Enter an expense" onChange={handleInputChange} />
-      <button onClick={changeTotal}>Enter</button>
+    <div className="flex justify-center align-middle">
+      <section className="flex flex-col">
+        <div className="text-4xl font-bold text-center">{total}</div>
+        <section className="border-2 border-blue-300 rounded-md">
+          <input className="p-1" value={enteredValue} type="text" placeholder="Enter an expense" onChange={handleInputChange} />
+          <button onClick={changeTotal}>Enter</button>
+        </section>
+      </section>
     </div>
   );
 }
