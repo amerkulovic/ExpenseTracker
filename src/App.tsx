@@ -40,7 +40,11 @@ function App() {
   return (
     <div className="flex justify-center align-middle">
       <section className="flex flex-col">
-        <div className="text-4xl font-bold text-center">{total}</div>
+        <div className="text-4xl font-bold text-center">
+          {expenses.reduce((currentTotal, expense) => {
+            return (currentTotal += expense.cost);
+          }, 0)}
+        </div>
         <section className="border-2 border-blue-300 rounded-md m-2">
           <input className="p-1" value={enteredValue} type="number" placeholder="Enter an expense" onChange={handleInputChange} />
           <button className="p-1" onClick={changeTotal}>
