@@ -42,7 +42,7 @@ function App() {
       <section className="flex flex-col">
         <div className="text-4xl font-bold text-center">{total}</div>
         <section className="border-2 border-blue-300 rounded-md m-2">
-          <input className="p-1" value={enteredValue} type="text" placeholder="Enter an expense" onChange={handleInputChange} />
+          <input className="p-1" value={enteredValue} type="number" placeholder="Enter an expense" onChange={handleInputChange} />
           <button className="p-1" onClick={changeTotal}>
             Enter
           </button>
