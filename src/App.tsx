@@ -39,18 +39,16 @@ function App() {
   };
 
   return (
-    <div className="flex justify-center align-middle">
-      <section className="flex flex-col w-1/2">
-        <div className="text-4xl font-bold text-center">
-          {expenses.reduce((currentTotal, expense) => {
-            return Math.round((currentTotal += expense.cost));
-          }, 0)}
-        </div>
-        <Form totalFunction={changeTotal} buttonOnChange={handleInputChange} valueInput={enteredValue} descInput={enteredDescription} descOnChange={handleDescriptionChange} />
-        {expenses.map((expense, id) => (
-          <ExpenseItem key={id} id={id} cost={expense.cost} description={expense.description} buttonFunction={() => removeExpense(expense.id)} />
-        ))}
-      </section>
+    <div className="flex flex-col items-center justify-center align-middle">
+      <div className="text-4xl font-bold text-center">
+        {expenses.reduce((currentTotal, expense) => {
+          return Math.round((currentTotal += expense.cost));
+        }, 0)}
+      </div>
+      <Form totalFunction={changeTotal} buttonOnChange={handleInputChange} valueInput={enteredValue} descInput={enteredDescription} descOnChange={handleDescriptionChange} />
+      {expenses.map((expense, id) => (
+        <ExpenseItem key={id} id={id} cost={expense.cost} description={expense.description} buttonFunction={() => removeExpense(expense.id)} />
+      ))}
     </div>
   );
 }

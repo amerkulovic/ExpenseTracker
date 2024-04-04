@@ -11,17 +11,17 @@ type FormProps = {
 
 const Form: FC<FormProps> = ({ valueInput, buttonOnChange, descInput, descOnChange, totalFunction }) => {
   return (
-    <>
-      <section className="border-2 border-blue-300 rounded-md m-2">
-        <input className="p-1" value={valueInput} type="number" placeholder="Enter an expense" onChange={buttonOnChange} />
-        <button className="p-1" onClick={totalFunction}>
+    <div className="bg-green-300 rounded-xl p-10 w-1/2 my-5">
+      <section className="m-2">
+        <input className="p-1 rounded-l-xl w-10/12" value={valueInput} type="number" placeholder="Enter an expense" onChange={buttonOnChange} />
+        <button className="p-1 rounded-r-xl bg-green-400 w-2/12 font-bold" onClick={totalFunction}>
           Enter
         </button>
       </section>
-      <section className="border-2 border-blue-300 rounded-md m-2">
-        <input className="p-1 w-full" value={descInput} type="text" placeholder="Enter an description(optional)" onChange={descOnChange} />
+      <section className="mt-5">
+        <input className="p-1 rounded-xl w-full" value={descInput} type="text" placeholder="Enter an description(optional)" onChange={descOnChange} />
       </section>
-    </>
+    </div>
   );
 };
 

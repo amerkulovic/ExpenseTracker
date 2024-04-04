@@ -9,7 +9,7 @@ export type ExpenseItemProps = {
 
 const ExpenseItem: FC<ExpenseItemProps> = ({ id, cost, description, buttonFunction }) => {
   return (
-    <div className={`flex justify-between items-center p-3 my-1 rounded-lg ${cost >= 0 ? "bg-green-300" : "bg-red-400"}`}>
+    <div className={`flex justify-between items-center p-3 my-1 rounded-lg w-1/3 ${cost >= 0 ? "bg-green-300" : "bg-red-400"}`}>
       <p className="font-bold text-xl w-1/3">{description}</p>
       <p className="font-extrabold text-2xl w-1/3 flex justify-center">
         {cost > 0 ? "+" : ""}
