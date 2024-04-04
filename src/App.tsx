@@ -3,6 +3,7 @@ import ExpenseItem from "./components/ExpenseItem";
 import { ExpenseItemProps } from "./components/ExpenseItem";
 import { log } from "console";
 import exp from "constants";
+import Form from "./components/Form";
 
 type Expense = {
   id: number;
@@ -45,15 +46,7 @@ function App() {
             return Math.round((currentTotal += expense.cost));
           }, 0)}
         </div>
-        <section className="border-2 border-blue-300 rounded-md m-2">
-          <input className="p-1" value={enteredValue} type="number" placeholder="Enter an expense" onChange={handleInputChange} />
-          <button className="p-1" onClick={changeTotal}>
-            Enter
-          </button>
-        </section>
-        <section className="border-2 border-blue-300 rounded-md m-2">
-          <input className="p-1 w-full" value={enteredDescription} type="text" placeholder="Enter an description(optional)" onChange={handleDescriptionChange} />
-        </section>
+        <Form totalFunction={changeTotal} buttonOnChange={handleInputChange} valueInput={enteredValue} descInput={enteredDescription} descOnChange={handleDescriptionChange} />
         {expenses.map((expense, id) => (
           <ExpenseItem key={id} id={id} cost={expense.cost} description={expense.description} buttonFunction={() => removeExpense(expense.id)} />
         ))}
