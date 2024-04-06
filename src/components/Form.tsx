@@ -1,5 +1,6 @@
 import { totalmem } from "os";
 import { FC } from "react";
+import { Expense } from "../App";
 
 type FormProps = {
   valueInput: number | string;
@@ -7,11 +8,17 @@ type FormProps = {
   descInput: string;
   descOnChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   totalFunction: () => void;
+  expenses: Expense[];
 };
 
-const Form: FC<FormProps> = ({ valueInput, buttonOnChange, descInput, descOnChange, totalFunction }) => {
+const Form: FC<FormProps> = ({ valueInput, buttonOnChange, descInput, descOnChange, totalFunction, expenses }) => {
   return (
     <div className="bg-green-300 rounded-xl p-10 w-1/2 my-5">
+      <div className="text-4xl font-bold text-center mb-10">
+        {expenses.reduce((currentTotal, expense) => {
+          return Math.round((currentTotal += expense.cost));
+        }, 0)}
+      </div>
       <section className="m-2">
         <input className="p-1 rounded-l-xl w-10/12" value={valueInput} type="number" placeholder="Enter an expense" onChange={buttonOnChange} />
         <button className="p-1 rounded-r-xl bg-green-400 w-2/12 font-bold" onClick={totalFunction}>

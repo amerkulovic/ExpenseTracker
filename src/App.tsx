@@ -5,7 +5,7 @@ import { log } from "console";
 import exp from "constants";
 import Form from "./components/Form";
 
-type Expense = {
+export type Expense = {
   id: number;
   cost: number;
   description: string;
@@ -40,12 +40,7 @@ function App() {
 
   return (
     <div className="flex flex-col items-center justify-center align-middle">
-      <div className="text-4xl font-bold text-center">
-        {expenses.reduce((currentTotal, expense) => {
-          return Math.round((currentTotal += expense.cost));
-        }, 0)}
-      </div>
-      <Form totalFunction={changeTotal} buttonOnChange={handleInputChange} valueInput={enteredValue} descInput={enteredDescription} descOnChange={handleDescriptionChange} />
+      <Form expenses={expenses} totalFunction={changeTotal} buttonOnChange={handleInputChange} valueInput={enteredValue} descInput={enteredDescription} descOnChange={handleDescriptionChange} />
       {expenses.map((expense, id) => (
         <ExpenseItem key={id} id={id} cost={expense.cost} description={expense.description} buttonFunction={() => removeExpense(expense.id)} />
       ))}
