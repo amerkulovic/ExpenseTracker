@@ -14,7 +14,7 @@ type FormProps = {
 const Form: FC<FormProps> = ({ valueInput, buttonOnChange, descInput, descOnChange, totalFunction, expenses }) => {
   return (
     <div className="bg-green-300 rounded-xl p-10 w-1/2 my-5">
-      <div className="text-4xl font-bold text-center mb-10">
+      <div className="text-5xl font-bold text-center text-white mb-10">
         {expenses.reduce((currentTotal, expense) => {
           return Math.round((currentTotal += expense.cost));
         }, 0)}
