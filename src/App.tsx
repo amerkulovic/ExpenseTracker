@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import ExpenseItem from "./components/ExpenseItem";
 import { ExpenseItemProps } from "./components/ExpenseItem";
-import { log } from "console";
 import exp from "constants";
 import Form from "./components/Form";
 
@@ -35,7 +34,6 @@ function App() {
 
   const removeExpense = (id: number) => {
     setExpenses(expenses.filter((expense) => expense.id !== id));
-    console.log(expenses);
   };
 
   return (
