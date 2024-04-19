@@ -19,6 +19,24 @@ const Form: FC<FormProps> = ({ valueInput, buttonOnChange, descInput, descOnChan
           return Math.round((currentTotal += expense.cost));
         }, 0)}
       </div>
+      <section className="flex flex-row justify-center pb-4">
+        <div className="bg-green-400 font-bold rounded-l-xl py-3 px-5 text-xl">
+          {expenses.reduce((currentTotal, expense) => {
+            if (expense.cost > 0) {
+              currentTotal += expense.cost;
+            }
+            return currentTotal;
+          }, 0)}
+        </div>
+        <div className="bg-red-400 font-bold rounded-r-xl py-3 px-5 text-xl">
+          {expenses.reduce((currentTotal, expense) => {
+            if (expense.cost < 0) {
+              currentTotal += expense.cost;
+            }
+            return currentTotal;
+          }, 0)}
+        </div>
+      </section>
       <section className="m-2">
         <input className="p-1 rounded-l-xl w-10/12" value={valueInput} type="number" placeholder="Enter an expense" onChange={buttonOnChange} />
         <button className="p-1 rounded-r-xl bg-green-400 w-2/12 font-bold" onClick={totalFunction}>
