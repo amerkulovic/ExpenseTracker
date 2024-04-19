@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import ExpenseItem from "./components/ExpenseItem";
-import { ExpenseItemProps } from "./components/ExpenseItem";
-import exp from "constants";
 import Form from "./components/Form";
 
 export type Expense = {
@@ -39,6 +37,7 @@ function App() {
   return (
     <div className="flex flex-col items-center justify-center align-middle">
       <Form expenses={expenses} totalFunction={changeTotal} buttonOnChange={handleInputChange} valueInput={enteredValue} descInput={enteredDescription} descOnChange={handleDescriptionChange} />
+      <p>Add a '-' for an expense</p>
       {expenses.map((expense, id) => (
         <ExpenseItem key={id} id={id} cost={expense.cost} description={expense.description} buttonFunction={() => removeExpense(expense.id)} />
       ))}
